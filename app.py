@@ -11,11 +11,7 @@ BONUS:
 """
 
 import json
-from flask import Flask, request, redirect
-app = Flask(__name__)
-
-
-data = {}
+from flask import Flask
 
 def load_json():
     global data
@@ -25,6 +21,11 @@ def load_json():
         print('json loaded successfully!')
     else:
         print('uh oh, config is empty/ not loaded?')
+
+
+data = {}
+load_json()
+app = Flask(__name__)
 
 
 @app.route('/emissions/<food>')
@@ -41,9 +42,3 @@ def get_avail_foods():
     for food in data:
         avail_foods.append(food)
     return {"foods":avail_foods}
-
-
-
-# if __name__ == '__main__':
-load_json()
-app.run()
