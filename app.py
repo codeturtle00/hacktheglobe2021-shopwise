@@ -44,6 +44,6 @@ def get_avail_foods():
 
 
 
-if __name__ == '__main__':
-    load_json()
-    app.run()
+# if __name__ == '__main__':
+load_json()
+app.run()
